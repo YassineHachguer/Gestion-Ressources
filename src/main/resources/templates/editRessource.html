@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/lthymeeaf/layout"
+      layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>ressource Form</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="col-md-6 offset-3">
+        <form method="post" th:action="@{save(page=${page}, keyword=${keyword})}">
+            <div>
+                <label>Code</label>
+                <input class="form-control" type="text" name="code" th:value="${ressource.code}">
+            </div>
+            <div>
+                <label>Titre</label>
+                <input class="form-control" type="text" name="titre" th:value="${ressource.titre}">
+                <span class="text-danger" th:errors="${ressource.titre}"></span>
+            </div>
+            <div>
+                <label>Date d'achat</label>
+                <input class="form-control" type="date" name="dateAchat" th:value="${ressource.dateAchat}">
+                <span class="text-danger" th:errors="${ressource.dateAchat}"></span>
+            </div>
+            <div>
+                <label>Prix</label>
+                <input class="form-control" type="number" name="prix" th:value="${ressource.prix}">
+                <span class="text-danger" th:errors="${ressource.prix}"></span>
+            </div>
+            <div>
+                <label>Note</label>
+                <input class="form-control" type="number" name="note" th:value="${ressource.note}">
+                <span class="text-danger" th:errors="${ressource.note}"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+
+
+
+</div>
+</body>
+</html>
